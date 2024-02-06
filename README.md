@@ -1,12 +1,9 @@
 # Schedule Test
-
 This is a short test for Homebase.
 
 ## Installation (Docker)
 
-You can either run the app locally by installing all dependencies or you can use docker to run the entire application sith a single command.
-
-Docker allows you to run the application with a single command just follow the instructions.
+You can either run the app locally by installing all dependencies or you can use Docker to run the entire application with a single command. Just follow the instructions below.
 
 ### Prerequisites
 
@@ -15,68 +12,66 @@ Docker allows you to run the application with a single command just follow the i
 
 ### Instructions
 
-Startup docker environment
+Start Docker environment
 
 ```bash
-# startup the servers:
+# Start up the servers:
 docker-compose up -d
 
-# spy the app's logs
+# View the app's logs
 docker-compose logs -f
 
-# stop the services
+# Stop the services
 docker-compose down -v
 ```
 
 ## Installation (Local)
 
-Alternatively if docker is not your thing you can run the application locally by following these instructions:
+Alternatively, if Docker is not your thing, you can run the application locally by following these instructions:
 
 ### Prerequisites
 
-- ruby 3.0.6p216
+- Ruby 3.0.6p216
 - npm 10.4.0
+- Instructions
 
-### Instructions 
-
-Run ruby app
+### Run Ruby app
 
 ```bash
 # Install rbenv
 brew install rbenv
 
-# Install ruby 3.0.6
+# Install Ruby 3.0.6
 rbenv install 3.0.6
 
 # Change directory
 cd backend/
 
-# Install ruby gems
+# Install Ruby gems
 bundle install
 
 # Run server
 ruby server.rb -o 0.0.0.0 -p 3000
 ```
 
-Run React app
+### Run React App
 
 ```bash
-# Install node
+# Install Node
 brew install node
 
 # Change directory
 cd frontend
 
-# Install node modules
+# Install Node modules
 npm install
 
-# Starting server
+# Start server
 npm run start
 ```
 
 ## Usage
-
-- Run docker environment (or run locally)
+- Run Docker environment (or run locally)
 - Open your browser
 - Visit http://localhost:3001
 - Use the app
