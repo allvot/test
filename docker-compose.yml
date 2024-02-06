@@ -1,0 +1,40 @@
+version: '3'
+
+volumes:
+  bundle:
+  node_modules:
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/back/Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app/
+      - ./docker/back/entrypoint.sh:/app/docker/back/entrypoint.sh
+      - bundle:/usr/local/bundle
+    entrypoint: /app/docker/back/entrypoint.sh
+    ports:
+      - 3000:3000
+    env_file: 
+      - .env
+  
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/front/Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app/
+      - node_modules:/app/frontend/node_modules
+      - ./docker/front/entrypoint.sh:/app/docker/front/entrypoint.sh
+    entrypoint: /app/docker/front/entrypoint.sh
+    ports:
+      - 3001:3001
+      - 3002:3002
+    env_file: 
+      - .env
+  

@@ -1,0 +1,6 @@
+.env
+!.env.*
+tmp/
+vendor/
+frontend/node_modules/
+*.DS_Store
