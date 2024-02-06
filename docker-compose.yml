@@ -22,19 +22,21 @@ services:
       - .env
   
   frontend:
+    environment:
+      - PORT=3001
+      - BACKEND_URL=http://localhost:3000
     build:
       context: .
       dockerfile: docker/front/Dockerfile
     stdin_open: true
     tty: true
     volumes:
-      - .:/app/
       - node_modules:/app/frontend/node_modules
+      - .:/app/
       - ./docker/front/entrypoint.sh:/app/docker/front/entrypoint.sh
     entrypoint: /app/docker/front/entrypoint.sh
     ports:
       - 3001:3001
-      - 3002:3002
     env_file: 
       - .env
   
